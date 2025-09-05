@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4bhldmsyy023"]
+[gd_scene load_steps=12 format=3 uid="uid://c4bhldmsyy023"]
 
 [ext_resource type="Script" uid="uid://dlgmhs5o6n6or" path="res://pong/paddle.gd" id="1_f7obv"]
 [ext_resource type="Script" uid="uid://dssu3iipo0wnn" path="res://pong/pong.gd" id="1_teprw"]
 [ext_resource type="Texture2D" uid="uid://0gk2h1yago83" path="res://pong/paddle.png" id="2_1hw3o"]
 [ext_resource type="Script" uid="uid://dwy5cpy770phq" path="res://pong/ball.gd" id="3_g8uh0"]
-[ext_resource type="Texture2D" uid="uid://c4tdu782bkmsp" path="res://icon.svg" id="4_fif4v"]
+[ext_resource type="Texture2D" uid="uid://kayaydvypriy" path="res://icon.svg" id="4_fif4v"]
 [ext_resource type="Script" uid="uid://bf04d35vohdqi" path="res://pong/net.gd" id="5_fif4v"]
+[ext_resource type="AudioStream" uid="uid://c5ulvqof5m6vw" path="res://pong/Hit.mp3" id="6_one0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uh0"]
 size = Vector2(494.855, 90.6566)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_teprw"]
-radius = 73.5671
+radius = 42.0452
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_teprw"]
 size = Vector2(1320.59, 35.8243)
@@ -46,24 +47,29 @@ slide_on_ceiling = false
 script = ExtResource("3_g8uh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-position = Vector2(-97.2827, -228.738)
+position = Vector2(-143.116, -251.083)
 scale = Vector2(1.0001, 0.985717)
 shape = SubResource("CircleShape2D_teprw")
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="Ball"]
-position = Vector2(-101.298, -226.768)
+position = Vector2(-143.131, -249.083)
 rotation = -1.56122
-scale = Vector2(-1.39406, 1.28771)
+scale = Vector2(-0.726326, 0.771423)
 texture = ExtResource("4_fif4v")
 metadata/_edit_group_ = true
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Ball"]
+position = Vector2(-6.67688, 355.96)
+stream = ExtResource("6_one0h")
+volume_db = 0.667
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(-23.443, 58.8254)
 rotation = 0.0180397
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2(233.537, -425.48)
+position = Vector2(343.31, -447.636)
 rotation = 1.54993
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_teprw")
@@ -74,7 +80,7 @@ position = Vector2(-23.443, 58.8254)
 rotation = 0.0180397
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2(-381.86, -460.008)
+position = Vector2(-433.847, -458.461)
 rotation = 1.54993
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_teprw")
