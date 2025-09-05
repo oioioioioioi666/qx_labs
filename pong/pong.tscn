@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dssu3iipo0wnn" path="res://pong/pong.gd" id="1_teprw"]
 [ext_resource type="Texture2D" uid="uid://0gk2h1yago83" path="res://pong/paddle.png" id="2_1hw3o"]
 [ext_resource type="Script" uid="uid://dwy5cpy770phq" path="res://pong/ball.gd" id="3_g8uh0"]
-[ext_resource type="Texture2D" uid="uid://kayaydvypriy" path="res://icon.svg" id="4_fif4v"]
+[ext_resource type="Texture2D" uid="uid://kayaydvypriy" path="res://icon1.svg" id="4_fif4v"]
 [ext_resource type="Script" uid="uid://bf04d35vohdqi" path="res://pong/net.gd" id="5_fif4v"]
 [ext_resource type="AudioStream" uid="uid://c5ulvqof5m6vw" path="res://pong/Hit.mp3" id="6_one0h"]
 
@@ -71,7 +71,6 @@ rotation = 0.0180397
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2(343.31, -447.636)
 rotation = 1.54993
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_teprw")
 metadata/_edit_group_ = true
 
@@ -82,7 +81,6 @@ rotation = 0.0180397
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 position = Vector2(-433.847, -458.461)
 rotation = 1.54993
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_teprw")
 metadata/_edit_group_ = true
 
