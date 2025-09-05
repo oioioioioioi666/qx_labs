@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4bhldmsyy023"]
+
+[ext_resource type="Script" uid="uid://dlgmhs5o6n6or" path="res://pong/paddle.gd" id="1_f7obv"]
+[ext_resource type="Script" uid="uid://dssu3iipo0wnn" path="res://pong/pong.gd" id="1_teprw"]
+[ext_resource type="Texture2D" uid="uid://0gk2h1yago83" path="res://pong/paddle.png" id="2_1hw3o"]
+[ext_resource type="Script" uid="uid://dwy5cpy770phq" path="res://pong/ball.gd" id="3_g8uh0"]
+[ext_resource type="Texture2D" uid="uid://c4tdu782bkmsp" path="res://icon.svg" id="4_fif4v"]
+[ext_resource type="Script" uid="uid://bf04d35vohdqi" path="res://pong/net.gd" id="5_fif4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8uh0"]
+size = Vector2(494.855, 90.6566)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_teprw"]
+radius = 73.5671
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teprw"]
+size = Vector2(1320.59, 35.8243)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_one0h"]
+size = Vector2(759.599, 36.623)
+
+[node name="Pong" type="Node2D"]
+position = Vector2(175, 426)
+rotation = 1.56328
+script = ExtResource("1_teprw")
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+process_mode = 3
+position = Vector2(-104.373, -83.7872)
+rotation = 0.0180397
+script = ExtResource("1_f7obv")
+metadata/_edit_group_ = true
+
+[node name="Image" type="Sprite2D" parent="Paddle"]
+position = Vector2(22.5353, 50.7657)
+scale = Vector2(0.367822, 0.573173)
+texture = ExtResource("2_1hw3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(26.5035, 47.7238)
+shape = SubResource("RectangleShape2D_g8uh0")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(-9.03687, -394.079)
+slide_on_ceiling = false
+script = ExtResource("3_g8uh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(-97.2827, -228.738)
+scale = Vector2(1.0001, 0.985717)
+shape = SubResource("CircleShape2D_teprw")
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="Ball"]
+position = Vector2(-101.298, -226.768)
+rotation = -1.56122
+scale = Vector2(-1.39406, 1.28771)
+texture = ExtResource("4_fif4v")
+metadata/_edit_group_ = true
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-23.443, 58.8254)
+rotation = 0.0180397
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(233.537, -425.48)
+rotation = 1.54993
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_teprw")
+metadata/_edit_group_ = true
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(-23.443, 58.8254)
+rotation = 0.0180397
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(-381.86, -460.008)
+rotation = 1.54993
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_teprw")
+metadata/_edit_group_ = true
+
+[node name="Net" type="Area2D" parent="."]
+position = Vector2(24.3001, -39.8184)
+script = ExtResource("5_fif4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net"]
+position = Vector2(-88.906, -1076.7)
+shape = SubResource("RectangleShape2D_one0h")
+metadata/_edit_group_ = true
+
+[node name="Net2" type="Area2D" parent="."]
+position = Vector2(-19.2866, 1234.89)
+script = ExtResource("5_fif4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Net2"]
+position = Vector2(-49.3209, -888.396)
+shape = SubResource("RectangleShape2D_one0h")
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Net" to="Net" method="_on_body_entered"]
+[connection signal="body_entered" from="Net2" to="Net2" method="_on_body_entered"]
